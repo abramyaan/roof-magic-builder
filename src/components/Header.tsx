@@ -27,9 +27,9 @@ export const Header = () => {
             <Phone className="w-4 h-4" />
             <span className="font-semibold text-base">+7 (999) 123-45-67</span>
           </a>
-          <a href="mailto:info@krovlya-msk.ru" className="hidden md:flex items-center gap-2 hover:text-primary transition-colors">
+          <a href="mailto:info@krovlya-spb.ru" className="hidden md:flex items-center gap-2 hover:text-primary transition-colors">
             <Mail className="w-4 h-4" />
-            info@krovlya-msk.ru
+            info@krovlya-spb.ru
           </a>
         </div>
         <div className="flex items-center gap-4">
@@ -66,7 +66,7 @@ export const Header = () => {
             </svg>
           </div>
           <div>
-            <span className="font-heading font-bold text-lg text-secondary-foreground leading-none block">КРОВЛЯ МСК</span>
+            <span className="font-heading font-bold text-lg text-secondary-foreground leading-none block">КРОВЛЯ СПБ</span>
             <span className="text-xs text-muted-foreground">Кровельные работы под ключ</span>
           </div>
         </a>
