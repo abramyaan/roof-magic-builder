@@ -7,9 +7,24 @@ import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 
 const works = [
-  { img: work1, title: "Монтаж кровли из металлочерепицы", desc: "Частный дом в Подмосковье, площадь 180 м². Полный монтаж за 5 дней.", area: "180 м²" },
-  { img: work2, title: "Строительство крыши под ключ", desc: "Загородный коттедж. Стропильная система, утепление, покрытие.", area: "250 м²" },
-  { img: work3, title: "Утепление мансардной кровли", desc: "Утепление минеральной ватой 200мм, пароизоляция, подшивка.", area: "120 м²" },
+  { 
+    img: work1, 
+    title: "Монтаж кровли из металлочерепицы", 
+    desc: "Частный дом в Кудрово (ЛО), площадь 180 м². Полный монтаж за 5 дней с учетом ветровой нагрузки.", 
+    area: "180 м²" 
+  },
+  { 
+    img: work2, 
+    title: "Строительство крыши под ключ", 
+    desc: "Загородный коттедж в Сестрорецке. Усиленная стропильная система, премиальное утепление.", 
+    area: "250 м²" 
+  },
+  { 
+    img: work3, 
+    title: "Утепление мансардной кровли", 
+    desc: "Объект в Выборгском районе. Гидроизоляция повышенной надежности для климата СПб, минеральная вата 200мм.", 
+    area: "120 м²" 
+  },
 ];
 
 export const CompletedWorksSection = () => {
@@ -17,9 +32,9 @@ export const CompletedWorksSection = () => {
     <section id="completed" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
-          Примеры <span className="text-primary">выполненных работ</span>
+          Примеры <span className="text-primary">выполненных работ в СПб и ЛО</span>
         </h2>
-        <p className="text-lg text-muted-foreground text-center mb-12">Объекты, которыми мы гордимся</p>
+        <p className="text-lg text-muted-foreground text-center mb-12">Объекты в Санкт-Петербурге, которыми мы гордимся</p>
 
         <div className="grid md:grid-cols-3 gap-8">
           {works.map((w, i) => (

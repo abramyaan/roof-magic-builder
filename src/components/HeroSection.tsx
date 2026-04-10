@@ -5,16 +5,16 @@ import heroImg from "@/assets/hero-roofing.jpg";
 
 const benefits = [
   "Гарантия 5 лет на все виды работ",
-  "Работаем по договору, всё официально",
+  "Учитываем особенности климата СПб и ЛО",
   "Бесплатный выезд на замер и расчёт",
-  "Качественные материалы от проверенных брендов",
+  "Работаем по договору, фиксированная смета",
 ];
 
 export const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-32 pb-20">
       <div className="absolute inset-0 z-0">
-        <img src={heroImg} alt="Кровельные работы" className="w-full h-full object-cover" width={1920} height={1080} />
+        <img src={heroImg} alt="Кровельные работы в СПб" className="w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
       </div>
 
@@ -28,7 +28,7 @@ export const HeroSection = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground leading-tight mb-6 text-shadow">
             Кровельные работы
             <br />
-            <span className="text-primary">по Москве и МО</span>
+            <span className="text-primary">в Санкт-Петербурге и ЛО</span>
             <br />
             <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-highlight">
               с гарантией 5 лет
@@ -49,7 +49,7 @@ export const HeroSection = () => {
               <a href="#quiz">Рассчитать стоимость</a>
             </Button>
             <Button variant="outline" size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground/10">
-              <a href="tel:+79991234567">Позвонить нам</a>
+              <a href="tel:+78121234567">Позвонить нам</a>
             </Button>
           </div>
         </motion.div>
