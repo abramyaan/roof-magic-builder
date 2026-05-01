@@ -66,7 +66,7 @@ export const Header = () => {
             </svg>
           </div>
           <div>
-            <span className="font-heading font-bold text-lg text-secondary-foreground leading-none block">КРОВЛЯ СПБ</span>
+            <span className="font-heading font-bold text-lg text-secondary-foreground leading-none block">КРОВЛЯ МСК</span>
             <span className="text-xs text-muted-foreground">Кровельные работы под ключ</span>
           </div>
         </a>

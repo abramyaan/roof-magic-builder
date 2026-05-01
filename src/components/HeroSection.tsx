@@ -5,7 +5,7 @@ import heroImg from "@/assets/hero-roofing.jpg";
 
 const benefits = [
   "Гарантия 5 лет на все виды работ",
-  "Учитываем особенности климата СПб и ЛО",
+  "Учитываем особенности климата МСК и МО",
   "Бесплатный выезд на замер и расчёт",
   "Работаем по договору, фиксированная смета",
 ];
@@ -34,7 +34,7 @@ export const HeroSection = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground leading-tight mb-6 text-shadow">
             Кровельные работы
             <br />
-            <span className="text-primary">в Санкт-Петербурге и ЛО</span>
+            <span className="text-primary">в Москве и МО</span>
             <br />
             <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-highlight">
               с гарантией 5 лет

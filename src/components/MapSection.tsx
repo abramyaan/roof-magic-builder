@@ -34,7 +34,7 @@ export const MapSection = () => {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="w-5 h-5 text-primary" />
-            <span className="text-lg">Санкт-Петербург и Ленинградская область</span>
+            <span className="text-lg">Москве и Московской область</span>
           </div>
           <Dialog>
             <DialogTrigger asChild>
