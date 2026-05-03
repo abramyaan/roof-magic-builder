@@ -4,10 +4,9 @@ import { CallbackForm } from "./CallbackForm";
 import { MapPin } from "lucide-react";
 
 export const MapSection = () => {
-  // Генерируем строку с метками для Static API (центр СПб и разброс)
-  // Это имитация меток в популярных районах: Парголово, Сестрорецк, Пушкин, Гатчина, Мурино и т.д.
-  const staticMapUrl = "https://static-maps.yandex.ru/v1?lang=ru_RU&ll=30.3609,59.9311&z=9&l=map&pt=30.3,59.9,pm2rdm~30.4,60.0,pm2rdm~30.1,59.8,pm2rdm~30.6,59.9,pm2rdm~30.2,60.1,pm2rdm~29.7,60.0,pm2rdm~30.3,59.7,pm2rdm~30.5,59.8,pm2rdm~29.9,59.9,pm2rdm~30.2,59.8,pm2rdm~30.7,60.1,pm2rdm~29.8,59.7,pm2rdm~30.1,60.2,pm2rdm~30.4,59.6,pm2rdm~30.8,59.9,pm2rdm~30.0,60.0,pm2rdm~30.3,60.1,pm2rdm~29.6,59.9,pm2rdm~30.5,59.7,pm2rdm~30.1,59.7,pm2rdm&apikey=ВАШ_API_КЛЮЧ"; 
-  // Примечание: Static API работает и без ключа для небольшого трафика, но лучше вставить свой.
+  // Координаты Москвы: ll=37.6176,55.7558 (долгота и широта)
+  // В staticMapUrl я заменил центр и накидал примерные метки по МО (Химки, Мытищи, Люберцы, Одинцово и т.д.)
+  const staticMapUrl = "https://static-maps.yandex.ru/v1?lang=ru_RU&ll=37.6176,55.7558&z=9&l=map&pt=37.5,55.8,pm2rdm~37.7,55.9,pm2rdm~37.9,55.7,pm2rdm~37.4,55.6,pm2rdm~37.2,55.7,pm2rdm~37.6,55.5,pm2rdm~38.0,55.8,pm2rdm~37.1,55.9,pm2rdm~37.8,55.6,pm2rdm&apikey=ВАШ_API_КЛЮЧ"; 
 
   return (
     <section id="map" className="py-20 bg-background">
@@ -16,17 +15,17 @@ export const MapSection = () => {
           Наши работы <span className="text-primary">на карте</span>
         </h2>
         <p className="text-lg text-muted-foreground text-center mb-10">
-          Работаем по всему Санкт-Петербургу и Ленинградской области
+          Работаем по всей Москве и Московской области
         </p>
 
         <div className="rounded-2xl overflow-hidden shadow-xl mb-10 border border-border bg-muted flex items-center justify-center">
-          {/* Используем интерактивный виджет с координатами центра СПб */}
+          {/* Обновленный iframe: ll (центр) теперь на Москве, z=9 дает хороший охват области */}
           <iframe
-            src="https://yandex.ru/map-widget/v1/?ll=30.3609%2C59.9311&z=9&l=map"
+            src="https://yandex.ru/map-widget/v1/?ll=37.6176%2C55.7558&z=9&l=map"
             width="100%"
             height="450"
             frameBorder="0"
-            title="Карта работ СПб"
+            title="Карта работ Москва"
             className="w-full grayscale-[20%]"
           />
         </div>
@@ -34,7 +33,7 @@ export const MapSection = () => {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="w-5 h-5 text-primary" />
-            <span className="text-lg">Москве и Московской область</span>
+            <span className="text-lg text-center">Москва и Московская область</span>
           </div>
           <Dialog>
             <DialogTrigger asChild>

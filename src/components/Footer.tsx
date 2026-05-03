@@ -36,7 +36,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="border-t border-secondary-foreground/10 pt-6 text-center text-secondary-foreground/50 text-sm">
-          © 2026 КРОВЛЯ СПБ. Все права защищены.
+          © 2026 КРОВЛЯ МСК. Все права защищены.
         </div>
       </div>
     </footer>
