@@ -23,9 +23,9 @@ export const Header = () => {
       {/* Top bar */}
       <div className="container mx-auto px-4 py-2 flex items-center justify-between text-secondary-foreground text-sm">
         <div className="flex items-center gap-6">
-          <a href="tel:+79991234567" className="flex items-center gap-2 hover:text-primary transition-colors">
+          <a href="tel:+79772519076" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Phone className="w-4 h-4" />
-            <span className="font-semibold text-base">+7 (999) 123-45-67</span>
+            <span className="font-semibold text-base">+7 (977) 251-90-76</span>
           </a>
           <a href="mailto:info@krovlya-spb.ru" className="hidden md:flex items-center gap-2 hover:text-primary transition-colors">
             <Mail className="w-4 h-4" />

@@ -78,7 +78,7 @@ export const PricingSection = () => {
             </DialogContent>
           </Dialog>
           <p className="text-section-dark-foreground/70">
-            или позвоните нам: <a href="tel:+79991234567" className="text-primary font-bold text-xl hover:underline">+7 (999) 123-45-67</a>
+            или позвоните нам: <a href="tel:+79772519076" className="text-primary font-bold text-xl hover:underline">+7 (977) 251-90-76</a>
           </p>
         </div>
       </div>

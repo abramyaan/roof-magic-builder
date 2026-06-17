@@ -58,7 +58,8 @@ const WorkCard = ({ work, index }: { work: typeof works[0]; index: number }) => 
       transition={{ delay: index * 0.1 }}
       className="bg-card rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full group"
     >
-      <div className="relative h-64 overflow-hidden cursor-pointer" onClick={toggleImage}>
+      {/* ИЗМЕНЕНО: Убрана фиксированная высота h-64. Добавлен аспект 4:3 на мобилках и чистый квадрат aspect-square на ПК */}
+      <div className="relative w-full aspect-[4/3] md:aspect-square overflow-hidden cursor-pointer" onClick={toggleImage}>
         <img 
           src={work.images[currentImageIndex]} 
           alt={work.title} 
@@ -143,7 +144,7 @@ export const CompletedWorksSection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
           {works.map((w, i) => (
             <WorkCard key={w.title} work={w} index={i} />
           ))}
