@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,6 +24,7 @@ export const QuizSection = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
   const isLastQuestion = step === questions.length;
@@ -33,12 +35,37 @@ export const QuizSection = () => {
     setStep(step + 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Заявка отправлена!", description: "Мы рассчитаем стоимость и перезвоним." });
-    setStep(0);
-    setAnswers([]);
-    setPhone("");
+    setLoading(true);
+
+    const messageText = questions
+      .map((q, i) => `${q.q} — ${answers[i] ?? "-"}`)
+      .join("\n");
+
+    try {
+      await emailjs.send(
+  "service_wfdroyt",
+  "template_vpq6z3j",
+  {
+    name: "Заявка с квиза",
+    phone: phone,
+    time: new Date().toLocaleString("ru-RU"),
+    message: messageText,
+  },
+  "5z1eosMz0bUSW9FCk"
+);
+
+      toast({ title: "Заявка отправлена!", description: "Мы рассчитаем стоимость и перезвоним." });
+      setStep(0);
+      setAnswers([]);
+      setPhone("");
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Ошибка отправки", description: "Попробуйте ещё раз или позвоните нам", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -92,15 +119,23 @@ export const QuizSection = () => {
               >
                 <h3 className="text-xl font-bold mb-4">Почти готово! Оставьте номер для расчёта</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input placeholder="Ваш телефон" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required className="text-lg h-14" />
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    Получить расчёт
+                  <Input
+                    placeholder="Ваш телефон"
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    disabled={loading}
+                    className="text-lg h-14"
+                  />
+                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
+                    {loading ? "Отправляем..." : "Получить расчёт"}
                   </Button>
                 </form>
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </div>    
       </div>
     </section>
   );
