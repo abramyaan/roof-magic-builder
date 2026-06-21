@@ -27,9 +27,9 @@ export const Header = () => {
             <Phone className="w-4 h-4" />
             <span className="font-semibold text-base">+7 (977) 251-90-76</span>
           </a>
-          <a href="mailto:info@krovlya-spb.ru" className="hidden md:flex items-center gap-2 hover:text-primary transition-colors">
+          <a href="valerykrovelniy@yandex.ru" className="hidden md:flex items-center gap-2 hover:text-primary transition-colors">
             <Mail className="w-4 h-4" />
-            info@krovlya-spb.ru
+            valerykrovelniy@yandex.ru 
           </a>
         </div>
         <div className="flex items-center gap-4">
