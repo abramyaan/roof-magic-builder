@@ -21,7 +21,7 @@ export const Footer = () => {
                 <Mail className="w-4 h-4" /> valerykrovelniy@yandex.ru
               </a>
               <p className="flex items-center gap-2 text-secondary-foreground/70">
-                <MapPin className="w-4 h-4" /> Санкт-Петербург и ЛО
+                <MapPin className="w-4 h-4" /> Москва и МО
               </p>
             </div>
           </div>
