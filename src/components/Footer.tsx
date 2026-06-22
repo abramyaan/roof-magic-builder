@@ -6,9 +6,9 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold text-secondary-foreground mb-4">КРОВЛЯ СПБ</h3>
+            <h3 className="text-xl font-bold text-secondary-foreground mb-4">КРОВЛЯ МСК</h3>
             <p className="text-secondary-foreground/70">
-              Профессиональные кровельные работы по Санкт-Петербургу и Ленинградской области с гарантией 5 лет.
+              Профессиональные кровельные работы по Москве и Московской области с гарантией 5 лет.
             </p>
           </div>
           <div>
@@ -17,8 +17,8 @@ export const Footer = () => {
               <a href="tel:+79772519076" className="flex items-center gap-2 text-secondary-foreground/70 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" /> +7 (977) 251-90-76
               </a>
-              <a href="mailto:info@krovlya-spb.ru" className="flex items-center gap-2 text-secondary-foreground/70 hover:text-primary transition-colors">
-                <Mail className="w-4 h-4" /> info@krovlya-spb.ru
+              <a href="mailto:valerykrovelniy@yandex.ru" className="flex items-center gap-2 text-secondary-foreground/70 hover:text-primary transition-colors">
+                <Mail className="w-4 h-4" /> valerykrovelniy@yandex.ru
               </a>
               <p className="flex items-center gap-2 text-secondary-foreground/70">
                 <MapPin className="w-4 h-4" /> Санкт-Петербург и ЛО
