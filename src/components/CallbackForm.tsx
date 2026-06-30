@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
 export const CallbackForm = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
@@ -27,13 +29,13 @@ export const CallbackForm = () => {
         "5z1eosMz0bUSW9FCk"
       );
 
-      toast({ title: "Заявка отправлена!", description: "Мы перезвоним вам в ближайшее время." });
       setName("");
       setPhone("");
+      setLoading(false);
+      navigate("/thank-you");
     } catch (err) {
       console.error(err);
       toast({ title: "Ошибка отправки", description: "Попробуйте ещё раз или позвоните нам", variant: "destructive" });
-    } finally {
       setLoading(false);
     }
   };

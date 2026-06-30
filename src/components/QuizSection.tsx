@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +22,7 @@ const questions = [
 ];
 
 export const QuizSection = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [phone, setPhone] = useState("");
@@ -74,15 +76,15 @@ export const QuizSection = () => {
   "5z1eosMz0bUSW9FCk"
 );
 
-      toast({ title: "Заявка отправлена!", description: "Мы рассчитаем стоимость и перезвоним." });
       setStep(0);
       setAnswers([]);
       setPhone("");
       setPhoneError("");
+      setLoading(false);
+      navigate("/thank-you");
     } catch (err) {
       console.error(err);
       toast({ title: "Ошибка отправки", description: "Попробуйте ещё раз или позвоните нам", variant: "destructive" });
-    } finally {
       setLoading(false);
     }
   };
