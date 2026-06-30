@@ -21,7 +21,8 @@ export const CallbackForm = () => {
         {
           name: name,
           time: new Date().toLocaleString("ru-RU"),
-          message: `Телефон: ${phone}`,
+          phone: phone,
+          message: "Заявка с формы обратного звонка",
         },
         "5z1eosMz0bUSW9FCk"
       );

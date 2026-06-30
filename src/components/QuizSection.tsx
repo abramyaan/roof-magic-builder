@@ -24,6 +24,7 @@ export const QuizSection = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -35,8 +36,25 @@ export const QuizSection = () => {
     setStep(step + 1);
   };
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhoneError("");
+    const val = e.target.value;
+    const allDigits = val.replace(/\D/g, "");
+    const digits = allDigits.startsWith("7") ? allDigits.slice(1) :
+                   allDigits.startsWith("8") ? allDigits.slice(1) : allDigits;
+    const ten = digits.slice(0, 10);
+    setPhone(ten ? "+7 " + ten : "");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const cleanPhone = phone.replace(/\D/g, "");
+    if (cleanPhone.length < 11) {
+      setPhoneError("Введите полный номер телефона");
+      return;
+    }
+
     setLoading(true);
 
     const messageText = questions
@@ -60,6 +78,7 @@ export const QuizSection = () => {
       setStep(0);
       setAnswers([]);
       setPhone("");
+      setPhoneError("");
     } catch (err) {
       console.error(err);
       toast({ title: "Ошибка отправки", description: "Попробуйте ещё раз или позвоните нам", variant: "destructive" });
@@ -120,14 +139,16 @@ export const QuizSection = () => {
                 <h3 className="text-xl font-bold mb-4">Почти готово! Оставьте номер для расчёта</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <Input
-                    placeholder="Ваш телефон"
+                    placeholder="+7 (___) ___-__-__"
                     type="tel"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={handlePhoneChange}
+                    autoComplete="tel"
                     required
                     disabled={loading}
-                    className="text-lg h-14"
+                    className={`text-lg h-14 font-mono ${phoneError ? "border-destructive" : ""}`}
                   />
+                  {phoneError && <p className="text-destructive text-sm">{phoneError}</p>}
                   <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
                     {loading ? "Отправляем..." : "Получить расчёт"}
                   </Button>
